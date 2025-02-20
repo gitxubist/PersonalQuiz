@@ -8,10 +8,12 @@
 import UIKit
 
 final class ResultViewController: UIViewController {
+    
+    var transferAnswers: [Answer] = []
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        print(transferAnswers)
         // Do any additional setup after loading the view.
     }
     

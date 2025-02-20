@@ -31,6 +31,7 @@ final class QuestionsViewController: UIViewController {
     private var currentAnswers: [Answer] {
         questions[questionIndex].answers
     }
+    private var transferAnswers: [Answer] = []
     
     // MARK: - View Life Cycle
     override func viewDidLoad() {
@@ -42,7 +43,11 @@ final class QuestionsViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        
+        if segue.identifier == "showResult" {
+            if let resultVC = segue.destination as? ResultViewController {
+                resultVC.transferAnswers = transferAnswers
+            }
+        }
     }
     
     // MARK: - IB Actions
@@ -50,6 +55,7 @@ final class QuestionsViewController: UIViewController {
         guard let buttonIndex = singleButtons.firstIndex(of: sender) else { return }
         let currentAnswer = currentAnswers[buttonIndex]
         selectedAnswers.append(currentAnswer)
+        transferAnswers.append(currentAnswer)
         nextQuestion()
     }
     
@@ -57,15 +63,16 @@ final class QuestionsViewController: UIViewController {
         for (multipleSwitch, answer) in zip(multipleSwitches, currentAnswers) {
             if multipleSwitch.isOn {
                 selectedAnswers.append(answer)
+                transferAnswers.append(answer)
             }
         }
-        
         nextQuestion()
     }
     
     @IBAction private func rangedAnswerButtonTapped() {
         let index = lrintf(rangedSlider.value)
         selectedAnswers.append(currentAnswers[index])
+        transferAnswers.append(currentAnswers[index])
         nextQuestion()
     }
 }
@@ -140,3 +147,9 @@ private extension QuestionsViewController {
         performSegue(withIdentifier: "showResult", sender: nil)
     }
 }
+
+
+//Передать массив с ответами на экран с результатами
+//Определить наиболее часто встречающийся тип животного
+//Отобразить результаты в соотвствии с этим животным
+//Избавиться от кнопки возврата назад на экране результатов
