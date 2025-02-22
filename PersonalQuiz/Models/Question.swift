@@ -61,6 +61,8 @@ enum Animal: Character {
     case rabbit = "🐰"
     case turtle = "🐢"
     
+    var description: Character { return self.rawValue}
+    
     var definition: String {
         switch self {
         case .dog:

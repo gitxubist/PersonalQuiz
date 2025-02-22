@@ -318,12 +318,23 @@
                                     </label>
                                 </subviews>
                             </stackView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="j80-u0-k5J">
+                                <rect key="frame" x="16" y="348.5" width="288" height="199.5"/>
+                                <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="D3d-r6-7Ti"/>
                         <color key="backgroundColor" systemColor="secondarySystemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="D3d-r6-7Ti" firstAttribute="trailing" secondItem="wkd-mI-hP8" secondAttribute="trailing" constant="16" id="GVq-BU-pef"/>
+                            <constraint firstItem="D3d-r6-7Ti" firstAttribute="bottom" secondItem="j80-u0-k5J" secondAttribute="bottom" constant="20" id="RMl-2b-3nL"/>
                             <constraint firstItem="wkd-mI-hP8" firstAttribute="centerY" secondItem="wFe-dT-igf" secondAttribute="centerY" id="WlN-K9-Sw6"/>
+                            <constraint firstItem="j80-u0-k5J" firstAttribute="leading" secondItem="D3d-r6-7Ti" secondAttribute="leading" constant="16" id="g2a-uJ-awt"/>
+                            <constraint firstItem="D3d-r6-7Ti" firstAttribute="trailing" secondItem="j80-u0-k5J" secondAttribute="trailing" constant="16" id="ijz-oO-uj6"/>
+                            <constraint firstItem="j80-u0-k5J" firstAttribute="top" secondItem="wkd-mI-hP8" secondAttribute="bottom" constant="16" id="os6-vf-raO"/>
                             <constraint firstItem="wkd-mI-hP8" firstAttribute="leading" secondItem="D3d-r6-7Ti" secondAttribute="leading" constant="16" id="u41-6N-LSL"/>
                         </constraints>
                     </view>
@@ -334,10 +345,13 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="answerView" destination="j80-u0-k5J" id="b1f-rH-9ya"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QoN-Wa-sHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2363" y="3"/>
+            <point key="canvasLocation" x="2362.5" y="2.112676056338028"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="qwS-hk-Fv0">
@@ -359,6 +373,9 @@
         </scene>
     </scenes>
     <resources>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="secondarySystemBackgroundColor">
             <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
