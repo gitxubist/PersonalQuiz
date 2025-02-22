@@ -32,8 +32,13 @@ final class ResultViewController: UIViewController {
             counts[number, default: 0] += 1
         }.max { $0.value < $1.value }?.key
         
-        resultImageLabel.text = "Вы - \(String(describing: mostFrequent!.description))"
-        resultTextLabel.text = "Вы \(String(mostFrequent!.name))"
+        if let mostFrequent = mostFrequent {
+            resultImageLabel.text = "Вы - \(String(describing: mostFrequent.description))"
+        }
+
+        if let mostFrequent = mostFrequent {
+            resultTextLabel.text = "Вы \(String(mostFrequent.name))"
+        }
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
