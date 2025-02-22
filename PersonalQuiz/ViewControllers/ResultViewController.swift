@@ -11,8 +11,8 @@ final class ResultViewController: UIViewController {
     
     
     @IBOutlet private weak var answerView: UITextView!
-    @IBOutlet weak var resultImageLabel: UILabel!
-    @IBOutlet weak var resultTextLabel: UILabel!
+    @IBOutlet private weak var resultImageLabel: UILabel!
+    @IBOutlet private weak var resultTextLabel: UILabel!
     
     var transferAnswers: [Answer] = []
 
