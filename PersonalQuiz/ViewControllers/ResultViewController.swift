@@ -11,6 +11,8 @@ final class ResultViewController: UIViewController {
     
     
     @IBOutlet private weak var answerView: UITextView!
+    @IBOutlet weak var resultImageLabel: UILabel!
+    @IBOutlet weak var resultTextLabel: UILabel!
     
     var transferAnswers: [Answer] = []
 
@@ -19,28 +21,22 @@ final class ResultViewController: UIViewController {
         self.navigationItem.hidesBackButton = true
         
         var animals: [Animal] = []
+        
         for answer in transferAnswers {
-            
             animals.append(answer.animal)
-//            print("\(answer.animal.description) \(answer.animal)")
-            
+
             answerView.text?.append("\(answer.animal.description) << любит >> [\(answer.title)]\n")
         }
+        
         let mostFrequent = animals.reduce(into: [:]) { counts, number in
             counts[number, default: 0] += 1
         }.max { $0.value < $1.value }?.key
-        print(mostFrequent)
         
+        resultImageLabel.text = "Вы - \(String(describing: mostFrequent!.description))"
+        resultTextLabel.text = "Вы \(String(mostFrequent!.name))"
     }
     
     @IBAction func doneButtonTapped(_ sender: UIBarButtonItem) {
         dismiss(animated: true)
     }
 }
-
-
-//Определить наиболее часто встречающийся тип животного
-//Отобразить результаты в соотвствии с этим животным
-
-//PersonalQuiz.Answer(title: "Стейк", animal: PersonalQuiz.Animal.dog),
-

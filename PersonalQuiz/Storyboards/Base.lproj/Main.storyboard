@@ -347,6 +347,8 @@
                     </navigationItem>
                     <connections>
                         <outlet property="answerView" destination="j80-u0-k5J" id="b1f-rH-9ya"/>
+                        <outlet property="resultImageLabel" destination="lnc-N2-uJB" id="NIT-HV-NzF"/>
+                        <outlet property="resultTextLabel" destination="QVJ-OF-Dsk" id="K1U-lw-Q93"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="QoN-Wa-sHN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
